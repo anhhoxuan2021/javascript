@@ -1,0 +1,990 @@
+https://jqueryui.com/draggable/
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
+Zip: http://stuk.github.io/jszip/documentation/api_jszip/external.html
+	$("#user-info-modal .content-access-control :checkbox[value='"+tokenlist[i]+"']").prop("checked",true);
+
+
+	$(this).find("option:selected").css("display", "none");
+	$(this).find("option[value='']").attr("selected", "selected");
+
+	$("#userRole_add option[value='"+roleid+"']").prop("selected", "selected");
+	$('.ci-add-contact-person option:eq(1)').attr('selected', 'selected');
+
+------------display label from jq Selected select2 ------------
+	$('#ShipFrom-trans').val(inv_data.ShipFrom).trigger("change");
+
+	//$('#ShipFrom-trans').select2("data", { val: inv_data.ShipFrom, text: inv_data.ShipFrom });
+	//$("#ShipFrom-trans option[value='"+inv_data.ShipFrom +"']").prop("selected", "selected");
+	$('#Transfers #select2-ShipFrom-trans-container').html(value)
+		----------------------------------
+	    search theo first character
+		$("select").select2({
+                        matcher: function(params, data) {
+                            return dedctions.prototype.matchStart(params, data);
+                        }
+                    });
+					
+	     --- enter khong trong danh sach thi get tu apiCGT
+		 
+		 $(document).on('keyup', '.select2-search__field', function (e) {
+					if(e.keyCode==13){
+					var id = $(this).closest('.select2-dropdown').find('ul.select2-results__options').attr("id");
+						if(id == "select2-ShipFrom-trans-results"){
+						    console.log("===")
+						}						
+					}				   
+				})
+				
+	--------------- search --------
+	 matchStart:function(params, data){
+    params.term = params.term || '';
+    if (data.text.toUpperCase().indexOf(params.term.toUpperCase()) == 0) {
+        return data;
+    }
+    return false;
+    },
+	
+	
+	$("select").select2({
+		matcher: function(params, data) {
+			return dedctions.prototype.matchStart(params, data);
+		}
+	});
+--input mask------ definitions---
+	$.mask.definitions['1'] = "[0-1]";
+	$.mask.definitions['2'] = "[0-2]";
+	
+	
+	$("#Your-Company #AccountNo").mask("**-9999999?99999999999999999");
+--------------
+                //vendor info
+                if(inv_vendor.Address1==null||inv_vendor.Address1==""){
+                    inv_vendor.Address1="";
+                }else{
+                    inv_vendor.Address1=inv_vendor.Address1+"\n";
+                }
+                if(inv_vendor.Address2==null||inv_vendor.Address1==""){
+                    inv_vendor.Address2="";
+                }else{
+                    inv_vendor.Address2=inv_vendor.Address2+"\n"
+                }
+
+                var vendorinf =inv_vendor.BusinessName+"\n"+inv_vendor.Address1+
+                    inv_vendor.Address2+
+                    inv_vendor.City+" "+ inv_vendor.State +" "+inv_vendor.ZipCode;
+                $("#PurchasesReturns #VendorInformation").html(vendorinf);
+				
+------------------------ length table-----
+
+	var rowCount = $('#PurchasesReturns #invoice-detail-table tbody tr').length;
+
+
+	$("#PurchasesReturns #err-id").css({"display":""})
+-------------------------------- has class ?-------
+	is( ".pretty.awesome" )
+	.hasClass( "protected" )
+
+	Not class
+	!$(this).find("option:selected").hasClass("never-use"))
+-------------------settimeout-----
+	setTimeout(function(){
+		$("#PurchasesReturns #err-id").css({"display":"none"})
+	},2000)
+							
+	-------- localStorge---
+	a/String
+	localStorage.setItem("test", "Hello World!"); //It's saved!
+	var test = localStorage.getItem("test"); //Let's grab it and save it to a variable
+	console.log(test); //Logs "Hello World!"
+	b/object  
+	var test = { test: "thing", test2: "thing2", test3: [0, 2, 44] }​​​​​​​;
+	localStorage.setItem("test", test);
+	var test2 = localStorage.getItem("test");
+	console.log(test2); //Logs "[object Object]"
+	
+	to access to item:
+	​var test = { test: "thing", test2: "thing2", test3: [0, 2, 44] }​​​​​​​;
+	localStorage.setItem("test", JSON.stringify(test));
+	var test2 = localStorage.getItem("test");
+	test = JSON.parse(test2); //var test is now re-loaded!
+	
+	-------------not checked------
+	if ($(this).is(':not(:checked)'))
+	
+	------------ Devide-------
+	
+	var b=10%3   //get remain
+
+
+	var div = Math.floor(10/3); // get integer
+
+
+	
+	----------Export csv-------------------------------------------
+	http://blog.eliacontini.info/post/79860720828/export-to-csv-using-javascript-and-the-download
+	
+	var data = [
+                    {"title": "Book title,test 1", "author": "Name1 Surname1"},
+                    {"title": "Book title,test 2", "author": "Name2 Surname1"}
+                ];
+
+                // prepare CSV data
+                var csvData = new Array();
+                csvData.push('"Book, title","Author"');
+                var h =["title","author"]
+                data.forEach(function(item, index, array) {
+                    var t="";
+                    for(var l=0; l< h.length;l++){
+                        var key = h[l];
+                        if(l<h.length-1){
+                            t += '"'+item[key]+'"' + ',';
+                        }else{
+                           t+='"'+item[key]+'"';
+                        }
+                    }
+                    csvData.push(t);
+                });
+               */
+			   
+			   
+			   // download stuff
+                var fileName = mdy+"-"+"Vendor.csv";
+                var buffer = csvData.join("\n");
+                var blob = new Blob([buffer], {
+                    "type": "text/csv;charset=utf8;"
+       
+	   });
+                var link = document.createElement("a");
+
+                if(link.download !== undefined) { // feature detection
+                    // Browsers that support HTML5 download attribute
+                    link.setAttribute("href", window.URL.createObjectURL(blob));
+                    link.setAttribute("download", fileName);
+                }
+                
+                link.innerHTML = "Export to CSV";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+				
+				------------------ get date --------------
+				var day = new Date();
+                var year = day.getFullYear();
+                var date = day.getDate();
+                var month = parseInt(day.getMonth());
+                var mdy = month+"-"+date+"-"+year;
+				
+				var d = new Date(); // for now
+				//d.getHours(); // => 9
+				//d.getMinutes();
+				var time1 =d.getHours() + ":" +d.getMinutes();
+				------------------------------------- switch case------------
+				
+				switch(expression) {
+				case n:
+					code block
+					break;
+				case n:
+					code block
+					break;
+				default:
+					default code block
+				}
+				
+				------------- set landscape when printing javascript-------------------
+				<div>
+				<style>@page{size: landscape;}</style>;
+				<div content-here></div>
+				
+				</div>
+				
+				<div>
+				<style>@page{size: portrait;}</style>;
+				<div content-here></div>
+				
+				</div>
+				
+				NOTE:  javascript
+				var contain = "content of print"
+				var print_landscape = "<style>@page{size: landscape;margin-top: 10mm;}</style>"+contain;
+				$("#content-print").html(print_landscape);
+				window.print();
+				
+				------------------ parseFloat 2 decimal----------
+				sub29from228=Math.round(sub29from228 * 100) / 100 ;
+				
+				----------------- find tr first -----------------
+				"#Users #table-user-list tbody tr:first" 
+				
+				-----------Submit Form----------------------
+				
+				Submit form
+
+    e.preventDefault();
+        var formData= new FormData($('#Users form#form_user')[0]);
+    $.ajax({
+        url: baseapiURL + '_adduser.php',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        async: false,
+        success: function (xhr) {
+            var rsl = $.parseJSON(xhr) ;
+			}
+	 })
+	 ------------------------------- get detete key ------------
+	 $('html').keyup(function(e){
+    if(e.keyCode == 46) {
+        alert('Delete Key Pressed');
+    }
+	});
+	----------------- shift tab-----------------
+	if(e.shiftKey && e.keyCode === 9) {
+                setTimeout(function() {
+                    $(':focus').blur();
+                    $('#grading-coinid').focus()
+                }, 1);
+                listcoins=0;
+            }
+			
+	-------- export excell with simpleExcel.js--------
+	<!doctype html>
+	<html>
+		<head>
+			<script type="text/javascript" src="simple-excel.js"></script> 
+		</head>
+		<body>
+			<input type="file" id="fileInput" /><br/>
+			<input type="button" id="fileExport" />
+			<script type="text/javascript">
+	 
+				// read a CSV file 
+				var csvParser = new SimpleExcel.Parser.CSV();
+				// parse when file loaded, then print the result to console 
+				var fileInput = document.getElementById('fileInput');
+				fileInput.addEventListener('change', function (e) {            
+					var file = e.target.files[0];
+					csvParser.loadFile(file, function () {
+						console.log(csvParser.getSheet()); // print! 
+					});
+				});
+	 
+				// write an XLSX file             
+				var xlsxWriter = new SimpleExcel.Writer.XLSX();
+				var xlsxSheet = new SimpleExcel.Sheet();
+				var Cell = SimpleExcel.Cell;
+				xlsxSheet.setRecord([
+					[new Cell('ID', 'TEXT'), new Cell('Nama', 'TEXT'), new Cell('Kode Wilayah', 'TEXT')],
+					[new Cell(1, 'NUMBER'), new Cell('Kab. Bogor', 'TEXT'), new Cell(1, 'NUMBER')],
+					[new Cell(2, 'NUMBER'), new Cell('Kab. Cianjur', 'TEXT'), new Cell(1, 'NUMBER')],
+					[new Cell(3, 'NUMBER'), new Cell('Kab. Sukabumi', 'TEXT'), new Cell(1, 'NUMBER')],
+					[new Cell(4, 'NUMBER'), new Cell('Kab. Tasikmalaya', 'TEXT'), new Cell(2, 'NUMBER')]
+				]);
+				xlsxWriter.insertSheet(xlsxSheet);
+				// export when button clicked 
+				document.getElementById('fileExport').addEventListener('click', function () {            
+					xlsxWriter.saveFile(); // pop! ("Save As" dialog appears) 
+				});
+	 
+			</script> 
+		</body>
+	</html>
+	
+	-------- export excell with javascript--------
+	
+	mso-number-format:"0" // NO Decimals
+	mso-number-format:"0\.000" // 3 Decimals
+	mso-number-format:"\#\,\#\#0\.000"  // Comma with 3 dec
+	mso-number-format:"mm\/dd\/yy" // Date7
+	mso-number-format:"mmmm\ d\,\ yyyy"  // Date9
+	mso-number-format:"m\/d\/yy\ h\:mm\ AM\/PM" // D -T AMPM
+	mso-number-format:"Short Date" // 01/03/1998
+	mso-number-format:"Medium Date" // 01-mar-98
+	mso-number-format:"d\-mmm\-yyyy" // 01-mar-1998
+	mso-number-format:"Short Time" // 5:16
+	mso-number-format:"Medium Time" // 5:16 am
+	mso-number-format:"Long Time" // 5:16:21:00
+	mso-number-format:"Percent"  // Percent - two decimals
+	mso-number-format:"0%"   // Percent - no decimals
+	mso-number-format:"0\.E+00"  // Scientific Notation
+	mso-number-format:"\@" // Text
+	mso-number-format:"\#\ ???\/???" // Fractions - up to 3 digits (312/943)
+	mso-number-format:"\0022£\0022\#\,\#\#0\.00" // £12.76
+	mso-number-format:"\#\,\#\#0\.00_ \;\[Red\]\-\#\,\#\#0\.00\ " // 2 decimals, negative numbers in red and signed (1.56 -1.56)
+	
+	ex:
+	<td style='mso-number-format:"0"'></td>
+	
+	 var table="";
+ 
+		 table +='<table>' +
+					'<thead>' +
+						'<tr>' +
+							'<th>Column1</th>' +
+							'<th>Column2</th>' +
+							'<th>Column3</th>' +
+						'</tr>' +
+					'</thead>' +
+					'<tbody>' +
+						'<tr>' +
+							'<td>Value1</td>' +
+							'<td>Value2</td>' +
+							'<td>Value3</td>' +
+						'</tr>' +
+						'<tr>' +
+							'<td>Value5</td>' +
+							'<td>Value6</td>' +
+							'<td>Value7</td>' +
+						'</tr>' +
+					'</tbody>' +
+					'</table>';
+				var a = document.createElement('a');
+				var data_type = 'data:application/vnd.ms-excel';
+				a.href = data_type + ', ' + table;
+				//setting the file name
+				a.download = 'exported_table_.xls';
+				//triggering the function
+				a.click();
+				//just in case, prevent default behaviour
+				e.preventDefault();
+				
+				//open file:
+				var Excel = new ActiveXObject("Excel.Application");
+				Excel.Visible = true;
+				Excel.Workbooks.Open("exported_table_.xls")
+				
+				---------------------download file ajax---------
+				http://45.56.70.142/apiCGT/_testscript.php
+		 
+		/*var link = document.createElement("a");
+             link.style = "display: none";
+             link.download = rsl.export.filename;
+             link.href = baseapiURL+rsl.export.linkdownload;
+             //link.click();
+             var clickEvent = document.createEvent("MouseEvent");
+             clickEvent.initEvent("click", true, true);
+
+             link.dispatchEvent(clickEvent);
+            */
+            var link = document.createElement("a");
+             document.body.appendChild(link);
+             link.style = "display: none";
+             link.setAttribute( 'download', "Yes");
+             link.download = baseapiURL+rsl.export.linkdownload;
+             link.href =baseapiURL+rsl.export.linkdownload;
+             setTimeout(function(){
+                 link.click();
+             },10)
+			 
+			 and config this thing in .haccess
+			 AddType application/octet-stream .xml
+			 
+			 AddType application/octet-stream .csv			 
+			AddType application/octet-stream .xls
+			AddType application/octet-stream .doc
+			AddType application/octet-stream .avi
+			AddType application/octet-stream .mpg
+			AddType application/octet-stream .mov
+			AddType application/octet-stream .pdf
+			--------------------
+			----------------- find td--------------
+			if(callstatusname=="rescheduled"){
+                        $('#table-list-call tbody tr.row-selected').children().eq(3).removeAttr("style");
+                    }
+                    $('#table-list-call tbody tr.row-selected').children().eq(3).text(callstatusname);
+					
+			----------- href------------
+			<a href="mailto:emailaddress?subject=From Superior Beverage">emailaddress</a> 
+			
+			<a href="javascript:;">
+	       ---------------- Check lenth checkbox-----------------------
+		      var total_checked = $('.select-resident:checked').length;    
+			if(total_checked > 0){
+				$('.send-message').removeAttr('disabled');
+			} else {
+				$('.send-message').attr('disabled', 'disabled');
+			}
+ -----------------------loading-------------------------------
+		$('#import_data_file').html('<div class="col-xs-12 top5 paddL">DATABASE IMPORT IS PROCCESSING:</div>' +
+            '<div class="col-xs-12" style="z-index: 1000;"><img src="'+URL_PUBLIC+'assets/image/ajax-modal-loading.gif"></div>');		
+			
+			---------- clear file-----------
+			$(":file").filestyle('clear');
+			or
+			$('#userimagefile').filestyle(); 
+			$('#userimagefile').filestyle('clear');
+			
+------ multi select boostrap----------
+	<select id="servicetypeList"  name="servicetypeList[]" multiple="multiple"> </select>
+	
+	var options ="";
+	for(var i = 0; i < data.length; i ++){
+		_id = data[i].idservicetype;
+		_label = data[i].service;
+		options +='<option value="'+_id+'">'+_label+'</option>';
+	}
+   
+	$('#servicetypeList').html(options);
+	$('#servicetypeList').multiselect();
+	
+	Reset:
+	 $('#servicetypeList option:selected').each(function() {
+            $(this).prop('selected', false);
+        })
+        $('#servicetypeList').multiselect('refresh');
+		---------------------
+		---------------------validate email---------
+		
+			isValidEmailAddress: function(emailAddress) {
+        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+        return pattern.test(emailAddress);
+    },  
+	
+	
+	if(!obj.isValidEmailAddress(emailaddress.val())){ 
+                    errors ++;
+                    $(this).find('.contact-email').parent().addClass('has-error');                
+                }  
+				
+		------------ validate input------------------
+		
+		var listvalidate = [$("#businessorganization"),$("#businessname"),$("#address1"),$("#city"),$("#state-city"),$("#zipcode"),$("#contactperson"),$('#emailaddress'),$('#user-pass')];
+
+
+		validateInput: function(elements){
+			var error = 0;
+			$.each(elements, function(){
+				if($(this).val() == ""){
+					$(this).parent().addClass('has-error'); 
+					error ++;      
+				} else {
+					$(this).parent().removeClass('has-error');
+				}
+			});
+			
+			return error;
+		}
+		
+		------------- day of month------
+		var d = new Date();
+		var n = d.getDate();
+		
+		var d = new Date();
+
+		n = d.getMonth();
+
+		y = d.getFullYear();
+		
+		var day = new Date(2017, 2, 0).getDate(); console.log(day); //get last day of month
+		
+		get number week of month :
+		
+		var year =2017; month=1
+
+		  var weeks=[],
+			   firstDate=new Date(year, month, 1),
+			   lastDate=new Date(year, month+1, 0), 
+			   numDays= lastDate.getDate();
+		   
+		   var start=1;
+		   var end=7-firstDate.getDay();
+		   while(start<=numDays){
+			   weeks.push({start:start,end:end});
+			   start = end + 1;
+			   end = end + 7;
+			   if(end>numDays)
+				   end=numDays;    
+		   }        
+		   console.log(weeks);
+		   
+		   ------- current week---------
+		   var firstDay = new Date(year, month, 1).getDay();
+			var week = Math.ceil((date + firstDay)/7);
+			console.log(week);
+			
+			------------------ Find key in array------------
+			var id = 73;
+			myArray = [{'id':'73','foo73':'bar73'},{'id':'45','foo45':'bar45'},{'id':'7','foo73':'bar73'}];
+			var result = $.grep(myArray, function(e){ return e.id == id; });
+			var length = result.length;
+
+			console.log(length);
+			
+			------------------- Find value in array --------------
+			
+			var _id = 4; valuesArr =[1,2,4]
+						
+			var _idx = jQuery.inArray(_id, valuesArr);
+			if(_idx!=-1){
+				checheck ='checked="checked"';
+			}
+			
+			------------- input number------------------------
+			$("#service_type").on('keypress','.input-rate',function(e) {
+            var str1 = $(this).val();
+            var ch = (str1.split(".").length - 1);
+            var length = str1.length;
+            if(length<1&&e.which==46) {
+                return false;
+            }
+            if(ch>0&&e.which==46) {
+                return false;
+            }
+            if (e.which != 8 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
+
+                return false;
+            }
+
+        });
+		
+		--------------------- inArray---------------
+		var _idx = jQuery.inArray(_id, list);
+		
+		----------- not last tr---
+		$("#po-table-content tbody tr").each(function(){
+            if(!$(this).is(':last-child') || $("#po-table-content tbody tr").length == 1)
+            { })
+			
+
+	
+	------------------ Resize table--------------
+	1/html:
+		<table class="scroll tblMH370 tblgeneral tbltr30" id="tbl_history">
+		<tbody></tbody>
+		<table>
+    2/ css
+	/* overflow-y*/
+	table.scroll {
+    width: 100%;
+    border-spacing: 0;
+	}
+
+	table.scroll tbody,
+	table.scroll thead {
+		display: block;
+
+	}
+	table.scroll tbody{
+		padding-bottom: 15px;
+	}
+
+	table.scroll thead tr {
+		background-color: #6192BD;
+		color: #fff; opacity: 0.9;
+	}
+
+	table.scroll tbody {
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	/* end  */
+	table.tbltr30 tbody tr{
+		height: 30px!important;
+	}
+
+	table.tblMH370 tbody{
+		max-height: 370px;
+	}
+	table.tblMH500 thead tr{
+		height: 34px;
+	}
+	table.tblMH500 tbody{
+		max-height: 500px;
+	}
+	table.tblgeneral{
+		border-top: 1px solid #ccc;
+	}
+	table.tblgeneral{
+		border-top: 1px solid #ccc;
+	}
+	table.tblgeneral tbody tr{
+		min-height: 30px;
+		border-bottom: 1px solid #ccc;
+	}
+	table.tblgeneral tbody td,table.tblgeneral thead th {
+		padding-left: 6px;padding-right: 1px;
+		padding-top: 3px;padding-bottom: 3px;
+	}
+
+	table.tblborder {
+		border: 1px solid #ddd;
+	}
+	
+	3/Jq
+	
+		var tbl_listsWidth =[50,50];
+          $table = $('#tbl_lists');
+          $tablebody=$('#tbl_lists tbody')[0];
+          obj.resizeTbl($table,$tablebody,2,tbl_listsWidth);
+		  
+	resizeTbl:function($table,$tablebody,$numberCol,$colWidth){
+        var colWidth=[];
+        var $bodyWidth =parseFloat($table.find('tbody').width());
+        if($tablebody.scrollHeight>$tablebody.clientHeight){
+            $bodyWidth= $bodyWidth -30;
+            console.log($tablebody.scrollHeight);
+        }
+
+        for(var i=0; i<$numberCol;i++){
+            colWidth[i]=($bodyWidth*($colWidth[i])/100);
+        }
+
+        $(window).resize(function() {
+            $table.find('thead tr').children().each(function(i, v) {
+               // $(v).width(colWidth[i]);
+			   $(v).css("width",colWidth[i]+"px");
+            });
+
+            $table.find('tbody tr').children().each(function(i, v) {
+               // $(v).width(colWidth[i]);
+			   $(v).css("width",colWidth[i]+"px");
+            });
+        }).resize(); // Trigger resize handler
+    }
+	
+	-----------------------------  disabled option select------------
+	<tr><select class="project-list"><td></td> <td><select class="activity-list"> </td></tr>
+	      -------->  
+	
+	hadActivelistSelectd:function(){
+        $('table#tbl-weekly tbody tr .activity-list option').css({"display":""});
+        $('table#tbl-weekly tbody tr').each(function(){
+            var thisact = $(this).find('.activity-list option:selected');
+            var thisactid = thisact.val();
+            if(thisactid>0){
+                var projectid = $(this).find('.project-list option:selected').val();
+                if(projectid>0){
+                    $('table#tbl-weekly tbody tr').each(function(){
+                        var pro_id = $(this).find('.project-list option:selected').val();
+                        if(pro_id==projectid){
+                            $(this).find('.activity-list option[value="'+thisactid+'"]').css({"display":"none"});
+                        }
+                    });
+                }
+            }
+            thisact.css({"display":""});
+        });
+    },
+
+    hadProjectlistdisabled:function(){
+        $('table#tbl-weekly tbody tr .project-list option').css({"display":""});
+        var listAct=[]; // find listAct
+        $('table#tbl-weekly tbody tr').each(function(){
+            var belongproid = $(this).find('.activity-list').attr("belongproid");
+            var Act=[]; var i=0;
+            var thisact = $(this).find('.activity-list option').each(function(){
+                Act[i] = $(this).val();
+                i++;
+            });
+            //console.log(Act);
+            var param=[];
+             param[0] = thisact.length -1;
+             param[1] = 0;
+            if(belongproid!=""){
+                listAct[belongproid] =param;
+            }
+        });
+		//tinh projectid used
+        $('table#tbl-weekly tbody tr').each(function(){
+            var projectid = $(this).find('.project-list option:selected').val();
+            if(projectid>0){
+                var thisactid = $(this).find('.activity-list option:selected').val();
+                if(thisactid>0){
+                    for (var key in listAct) {
+                        if (key === 'length' || !listAct.hasOwnProperty(key)) continue;
+                        var increasing = listAct[key];
+                        if(key==projectid){
+                            increasing[1]= parseInt(increasing[1]) + 1;
+                        }
+                    }
+                }
+            }
+        });
+		// disabled project 
+        for (var key in listAct) {
+            if (key === 'length' || !listAct.hasOwnProperty(key)) continue;
+            var value = listAct[key];
+            if(parseInt(value[0])==parseInt(value[1])){
+                $('table#tbl-weekly tbody tr').each(function(){
+                    var projectid = $(this).find('.project-list option:selected').val();
+                    if(projectid==key){
+                        var activityid = $(this).find('.activity-list option:selected').val();
+                        if(activityid==""){
+                            $(this).find('.project-list option[value=""]').prop("selected","selected");
+                        }
+                    }
+
+                });
+
+                $('table#tbl-weekly tbody tr .project-list option[value="'+key+'"]:not(:selected)').css({"display":"none"});
+            }
+        }
+        //
+    },
+	
+		------------ selected select2--------------
+		<select id="lang" >
+		   <option value="php">php</option>
+		   <option value="asp">asp</option>
+		   <option value="java">java</option>
+		</select>
+		$("#lang").select2().select2('val','asp');
+		
+		or
+		Select2 v4: $('#inputID').val(100).trigger('change')
+		
+		or
+		To dynamically set the "selected" value of a Select2 component:
+
+		$('#inputID').select2('data', {id: 100, a_key: 'Lorem Ipsum'});
+		
+		  
+		  --------- mod and floor----
+		 var x=10;var y =3
+		console.log(10%3);
+
+		var num = Math.floor(45/2); // lấy phần nguyên của 45 chia cho 2, kết quả sẽ là 20
+		console.log(num); 
+		
+		-----------------Replace-------
+		function convert(str)
+		{
+		  str = str.replace(/&/g, "&amp;");
+		  str = str.replace(/>/g, "&gt;");
+		  str = str.replace(/</g, "&lt;");
+		  str = str.replace(/"/g, "&quot;");
+		  str = str.replace(/'/g, "&#039;");
+		  return str;
+		}
+		------ format currency----
+		var n= 123456780
+		var nf= n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+		console.log(nf);
+		var currency = "$1,100.21";
+		var number = Number(currency.replace(/[^0-9\.]+/g,""));
+		console.log(number)
+		
+		       ---  keep "-"---
+			   var n= -123456780
+				var nf= n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+				console.log(nf);
+				var currency = "-100";
+				var number = Number(currency.replace(/[^0-9\.\-]+/g,""));
+				var M =number +1000
+				console.log(M.toFixed(2))
+		
+		--------copy content div to another div--------
+		var $orginal = $('#view-edit');
+        var $cloned = $orginal.clone();
+
+        //get original selects into a jq object
+        var $originalSelects = $orginal.find('select');
+        $cloned.find('select').each(function(index, item) {
+            //set new select to value of old select
+            $(item).val( $originalSelects.eq(index).val() );
+
+        });
+		
+		//get original textareas into a jq object
+		var $originalTextareas = $orginal.find('textarea');
+		 
+		$cloned.find('textarea').each(function(index, item) {
+		//set new textareas to value of old textareas
+		$(item).val($originalTextareas.eq(index).val());
+		});
+        $('#content-print').html($cloned);
+		
+		------------- Set width column of table --------
+		$('#transaction-edit #view-edit #tbl-MoneyOrder tbody tr td:last-child').css({"width":"5%"})
+                $('#transaction-edit #view-edit #tbl-MoneyOrder thead tr td:last-child').prev().css({"width":"17%"})
+				
+		---------------- tr not class-------
+		$('table#tbl-useraccessrecords-list tbody tr').not(".dislayNone").each(function(){}
+		
+		$('table#tbl-useraccessrecords-list tbody tr').not(".dislayNone").find('.company option').each(function(){
+            $(this).prop("disabled",false);
+        })
+		
+		----[
+		
+		]
+		
+		{"BREAKAGE":"BREAKAGE",
+		"THEFT":"THEFT","DEFECTIVE":"DEFECTIVE","DENATURATION":"DENATURATION","WITNESSED":"WITNESSED DESTRUCTION"}}
+		
+		---------------- cross domain----------
+		https://community.c9.io/t/setting-up-blog-with-angular-error-no-access-control-allow-origin-header-is-present-on-the-requested-resource/5975
+
+		
+		---------------- count line --------
+		const lines = (str.match(/\r?\n/g) || '').length + 1
+		---------------- remove /r/n------------
+		 var str = xhr.replace(/(\r)/gm,"");
+                             var rsl = JSON.stringify(str.replace(/(?:\\[rn]|[\r\n])/g, "<br/>"));
+                             rsl = rsl.replace(/(")/gm,"");
+							 
+	  --------- File-------
+	  // This fires after the blob has been read/loaded.
+		reader.addEventListener('loadend', (e) => {
+		  var text = (e.srcElement||e.target).result;
+		  console.log(text);
+		});
+
+		// Start reading the blob as text.
+		reader.readAsText(blb);
+
+
+		--- javascrip--
+		var myBlob = new Blob(["Hello"], {type : "text/plain"});
+		var myReader = new FileReader();
+		//handler executed once reading(blob content referenced to a variable) from blob is finished. 
+		myReader.addEventListener("loadend", function(e){
+			document.getElementById("text").innerHTML = e.srcElement.result;//prints a string
+		});
+		//start the reading process.
+		myReader.readAsText(myBlob);
+		
+		----------- Zip-----
+		a/ZIP: var zip = new JSZip();
+                    zip.file(fileName, data);
+                     zip.generateAsync({type: "blob",
+                         compression: "DEFLATE",
+                         compressionOptions: {
+                             level: 9
+                         }})
+                         .then(function(content) {}
+		b/File Reader: binary
+		var myReader = new FileReader();
+                             myReader.addEventListener("loadend", function(e){
+                                 data = e.srcElement.result;
+                                 dataZip[0] = data;
+                                 atob(dataZip)
+                                 //console.log(dataZip)
+                             });
+                             myReader.readAsBinaryString(content);
+		c/ convert to Text
+		var dataZip = new Uint32Array(1);
+		dataZip[0] = data;
+		btoa(dataZip)
+		---------------regular express -------
+		a/khong phan biet hoa thuong,
+		var reg = /(l)(q)(-)\d{5}$/i;
+		var error_lq = reg.test($('#Your-Company #AccountNo').val());
+		console.log(error_lq);
+		VM10435:3 false
+		
+		b/var reg = /^\d{4}(-)\d{4}$/;
+                error = reg.test($(this).val());
+				
+	   -----week number in year---
+	1/moment().day(-7); // last Sunday (0 - 7)
+	moment().day(7); // next Sunday (0 + 7)
+	moment().day(10); // next Wednesday (3 + 7)
+	moment().day(24); // 3 Wednesdays from now (3 + 7 + 7 + 7);
+	
+	
+	
+	2/2012/1/1   is Sunday in week 52 of 2011
+	https://stackoverflow.com/questions/6117814/get-week-of-year-in-javascript-like-in-php
+	
+	
+	function getWeekNumber(d) {
+		// Copy date so don't modify original
+		d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+		
+		// Set to nearest Thursday: current date + 4 - current day number
+		// Make Sunday's day number 7
+		d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+		
+		// Get first day of year
+		var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+		
+		// Calculate full weeks to nearest Thursday
+		var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+		
+		// Return array of year and week number
+		return [d.getUTCFullYear(), weekNo];
+	}
+
+	var result = getWeekNumber(new Date());
+	document.write('It\'s currently week ' + result[1] + ' of ' + result[0]);
+	
+	------------- set specific date---------
+	$('.specific .date-picker').datepicker("setDate", new Date(2008,9,03) );
+	
+	   $("#datepicker").datepicker({
+        dateFormat: "yy-mm-dd",
+        defaultDate: date,
+        onSelect: function () {
+            selectedDate = $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
+        }
+    });
+
+    $("#datepicker").datepicker("setDate", date);
+	
+	---------------
+	$("#PurchasesReturns #invoice-detail-table").on('keyup','#keyword',function(){
+            var element =$(this).closest('thead').find('#Unit-size');
+            var opt1= $(this).closest('#equivalent-detail').find('#new-unit-gallonage')
+            var opt2= $(this).closest('#equivalent-detail').find('#new-unit-ssinumber')
+            var vl = dataentry_purch_ret.prototype.get_text_compose($(this).val(),element,$(this),opt1,opt2);
+            console.log(vl);
+        })
+		
+		    compo_select_input:function(op1, op2, style1, style2){
+        var op = '<div id="equivalent-detail" style="position: relative; top:-15px">'+
+            '<select id="new-unit-gallonage" class="form-control" style="position: absolute; top: 0; '+style1+'">'+op1+'</select>'+
+            '<select id="new-unit-ssinumber" class="form-control" style="display:none;position: absolute; top: 0; '+style2+'">'+op2+'</select>'+
+            '<input class="form-control" id="keyword" type="text" style="position: absolute; top: 0; width: 70px; border-right: none!important;">'+
+        '</div>';
+        return op
+    },
+
+    get_text_compose:function(key,element,$me,opt1,opt2){
+        var rsl=""; var ID="";
+        if ( $(element).css('display') == 'none')
+        {
+            var opt_t = localStorage.getItem("SINumber_string");
+            var opt =JSON.parse(opt_t);
+            if(opt.length>0){
+                for(var i=0;i<opt.length;i++){
+                    var val = opt[i].Size.toLowerCase();
+                    key = key.toLowerCase();
+                    if(val.startsWith(key)){
+                        rsl = opt[i].Size;
+                        ID = opt[i].ID;
+
+                        opt1.find('option[value="'+ID+'"]').prop("selected",true)
+                        opt2.find('option[value="'+ID+'"]').prop("selected",true)
+                        break;
+                    }
+                }
+            }
+        }else{
+            var opt_t = localStorage.getItem("Size_string");
+            var opt =JSON.parse(opt_t);
+            if(opt.length>0){
+                for(var i=0;i<opt.length;i++){
+                    var val = opt[i].Size.toLowerCase();
+                    key = key.toLowerCase();
+                    if(val.startsWith(key)){
+                        rsl = opt[i].Size;
+                        ID = opt[i].ID;
+                        opt1.find('option[value="'+ID+'"]').prop("selected",true)
+                        opt2.find('option[value="'+ID+'"]').prop("selected",true)
+                        break;
+                    }
+                }
+            }
+        }
+
+        return rsl;
+    },
+			
+			
+	------- Modify select2--------------
+	https://stackoverflow.com/questions/31571864/select2-search-match-only-words-that-start-with-search-term
+			
+		
+	  
