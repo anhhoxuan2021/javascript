@@ -1,0 +1,53 @@
+ISO :NavigatorIOS
+React Navigation    
+	https://reactnavigation.org/docs/hello-react-navigation.html
+	npm install --save react-navigation
+	
+	hitslop :
+	https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html#hitslop
+	https://facebook.github.io/react-native/docs/improvingux.html
+
+native modules react native
+	https://clever.ly/blog/2017/05/09/going-native-creating-native-modules-in-react-native/
+	https://medium.com/mindorks/how-to-use-native-modules-in-react-native-android-hybrid-apps-62b67a2cc7ca
+
+	Wordpress
+	
+	Soliloquy Sliders
+	
+	<div id="hero">
+		<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '156' ); }
+		 ?>
+   </div>
+   
+   --------- [SHORTCODE] CHÈN HỘP TÌM KIẾM VÀO BÀI VIẾT-----
+   functions.php
+		a/
+		add_shortcode('wpbsearch', 'get_search_form');
+		Sau đó bạn sử dụng thẻ [wpbsearch] vào bài viết là hộp tìm kiếm sẽ hiển thị ra.
+		b/
+		function wpbsearchform( $form ) {
+
+			$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+			<div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
+			<input type="text" value="' . get_search_query() . '" name="s" id="s" />
+			<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+			</div>
+			</form>';
+
+			return $form;
+		}
+
+		add_shortcode('wpbsearch', 'wpbsearchform');
+		
+		----------Meta box-----------
+		 kiểu tấn công thông dụng như XSS hay CSRF.
+		 
+		 https://thachpham.com/wordpress/wordpress-development/cach-dung-filter-hook-trong-wordpress.html
+		 https://thachpham.com/wordpress/wordpress-development/cach-su-dung-action-hook-trong-wordpress.html
+		 https://thachpham.com/wordpress/wordpress-development/su-dung-wp-query-va-loop-vong-lap-de-lay-bai-viet.html
+		 https://thachpham.com/wordpress/wordpress-development/cau-truc-template-trong-theme-va-template-tag.html
+		 
+		 codex.wordpress.org
+		 
+	Hoi*chi7)	
