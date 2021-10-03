@@ -1,0 +1,38 @@
+A/ Some component are required:
+	NodeJS and NPM
+	Android SDK
+	XCode
+	
+B/Installing Cordova
+	Step 1 - Installing git
+	Step 2 - Installing Cordova
+				npm install -g cordova 
+C/Creating App
+	Step 1 - Open the directory where you want the app to be installed
+			    create project-folder reverse-domain project-name
+				ex: create CordovaProject io.cordova.hellocordova CordovaApp
+    Step 2 - Adding Platforms:
+			 cordova platform add android
+			 
+			 There are other platforms that can be used on Windows OS.
+
+			C:\Users\username\Desktop\CordovaProject>cordova platform add wp8 
+			C:\Users\username\Desktop\CordovaProject>cordova platform add amazon-fireos 
+			C:\Users\username\Desktop\CordovaProject>cordova platform add windows 
+			C:\Users\username\Desktop\CordovaProject>cordova platform add blackberry10
+			C:\Users\username\Desktop\CordovaProject>cordova platform add firefoxos 
+	Step 3 - Building and Running
+			In this step we will build the app for a specified platform so we can run it on mobile device or emulator.
+			C:\Users\username\Desktop\CordovaProject>cordova build android 
+			
+			 If you are using the default emulator you should use −
+			 C:\Users\username\Desktop\CordovaProject>cordova run android 
+D/config.xml 
+	file is the place where we can change the configuration of the app
+	
+---------------------- jq--------
+		npm install -g cordova-jquery
+		
+		cordova create hello com.example.hello HelloWorld --template cordova-jquery
+	
+	
